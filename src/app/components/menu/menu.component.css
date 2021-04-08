@@ -1,0 +1,17 @@
+a {
+  display: block;
+  font-size: x-large;
+  color: blue;
+  margin: 10px;
+}
+
+div {
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(99, 221, 221);
+}
+
+.active-link {
+  color: magenta;
+  font-weight: bold;
+}

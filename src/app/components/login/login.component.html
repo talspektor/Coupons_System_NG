@@ -1,0 +1,21 @@
+<div>
+  <h3>Login</h3>
+  <form action="">
+    <input #typeInput type="text" placeholder="Client Type" />
+    <br />
+    <br />
+    <input #emailInput type="text" placeholder="email" type="email" />
+    <br />
+    <br />
+    <input #passwordInput type="text" placeholder="password" type="password" />
+    <br />
+    <br />
+    <button
+      (click)="login(typeInput.value, emailInput.value, passwordInput.value)"
+    >
+      Login
+    </button>
+  </form>
+  <h3>{{ token }}</h3>
+  <h3 *ngIf="isLoggedin">Login success :)</h3>
+</div>

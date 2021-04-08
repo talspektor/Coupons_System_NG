@@ -1,0 +1,13 @@
+h1 {
+  margin: 0;
+  color: blue;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+div {
+  text-align: center;
+  height: 100%;
+  background-color: bisque;
+}
