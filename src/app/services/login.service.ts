@@ -1,27 +1,26 @@
+import { LoginRequestItem } from './../models/login-request-item.model';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ajax } from 'rxjs/ajax';
-import { map } from 'rxjs/operators';
+import { Login } from '../models/login.model';
+
 @Injectable({
   providedIn: 'root',
 })
 export class LoginService {
   constructor(private httpClient: HttpClient) {}
 
-  public login(
-    clientTipe: String,
-    email: String,
-    password: String
-  ): Observable<String> {
+  public login(loginItem: LoginRequestItem): Observable<Login> {
+    console.log(loginItem.clientType);
+
     let apiUrl =
       'http://localhost:8080/login/' +
-      clientTipe +
+      loginItem.clientType +
       '/' +
-      email +
+      loginItem.email +
       '/' +
-      password;
-    return this.httpClient.post<String>(apiUrl, { withCredentials: true });
+      loginItem.password;
+    return this.httpClient.post<Login>(apiUrl, { withCredentials: true });
   }
 
   // public login1({

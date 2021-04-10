@@ -1,20 +1,33 @@
 <div>
-  <h3>Login</h3>
   <form action="">
-    <input #typeInput type="text" placeholder="Client Type" />
+    <legend>Login</legend>
+    <br />
+    <select name="type" #typeInput [(ngModel)]="selectedValue">
+      <option *ngFor="let type of clientType">{{ type }}</option>
+    </select>
     <br />
     <br />
-    <input #emailInput type="text" placeholder="email" type="email" />
+    <input
+      name="email"
+      #emailInput
+      type="text"
+      [(ngModel)]="loginItem.email"
+      placeholder="email"
+      type="email"
+    />
     <br />
     <br />
-    <input #passwordInput type="text" placeholder="password" type="password" />
+    <input
+      name="password"
+      #passwordInput
+      type="text"
+      [(ngModel)]="loginItem.password"
+      placeholder="password"
+      type="password"
+    />
     <br />
     <br />
-    <button
-      (click)="login(typeInput.value, emailInput.value, passwordInput.value)"
-    >
-      Login
-    </button>
+    <button (click)="login()">Login</button>
   </form>
   <h3>{{ token }}</h3>
   <h3 *ngIf="isLoggedin">Login success :)</h3>
