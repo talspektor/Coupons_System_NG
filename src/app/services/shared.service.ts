@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class SharedService {
-  public token?: String;
+  public token: string = '';
   public globalVarUpdate?: Observable<String>;
   public globalVarObserver?: Observer<String>;
   constructor() {
@@ -14,7 +14,7 @@ export class SharedService {
     });
   }
 
-  public updateGlobalVar(newValue: String) {
+  public updateGlobalVar(newValue: string) {
     this.token = newValue;
     this.globalVarObserver?.next(this.token);
   }

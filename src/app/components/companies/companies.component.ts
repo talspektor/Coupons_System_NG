@@ -13,13 +13,13 @@ export class CompaniesComponent implements OnInit {
   constructor(private adminService: AdminService) {}
 
   ngOnInit(): void {
-    // this.adminService.getAllCompanies().subscribe(
-    //   (arr) => {
-    //     this.companies = arr;
-    //   },
-    //   (err) => {
-    //     alert('error: ' + err.message);
-    //   }
-    // );
+    this.adminService.getAllCompanies().subscribe(
+      (arr) => {
+        this.companies = arr;
+      },
+      (err) => {
+        console.log('error: ' + err.message);
+      }
+    );
   }
 }

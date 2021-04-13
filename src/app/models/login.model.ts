@@ -1,3 +1,3 @@
 export class Login {
-  constructor(public token: String) {}
+  constructor(public token: string) {}
 }

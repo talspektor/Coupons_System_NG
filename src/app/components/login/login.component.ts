@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
     ClientType.company,
     ClientType.customer,
   ];
-  public token!: String;
+  public token!: string;
   public isLoggedin = false;
   public selectedValue = ClientType.admin;
 
@@ -37,6 +37,8 @@ export class LoginComponent implements OnInit {
         this.token = loginItem.token;
         this.sharedService.token = this.token;
         this.isLoggedin = true;
+        console.log(this.token);
+
         switch (this.selectedValue) {
           case ClientType.admin:
             this.router.navigateByUrl('/admin');
