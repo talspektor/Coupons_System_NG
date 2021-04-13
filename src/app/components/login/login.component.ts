@@ -28,28 +28,24 @@ export class LoginComponent implements OnInit {
     private sharedService: SharedService
   ) {}
 
-  ngOnInit(): void {
-    this.sharedService.globalVarUpdate?.subscribe(
-      () => {},
-      () => {}
-    );
-  }
+  ngOnInit(): void {}
 
   public login() {
     this.loginItem.clientType = this.selectedValue;
     this.loginService.login(this.loginItem).subscribe(
       (loginItem) => {
         this.token = loginItem.token;
+        this.sharedService.token = this.token;
         this.isLoggedin = true;
         switch (this.selectedValue) {
           case ClientType.admin:
-            this.router.navigateByUrl('/.adminComponent');
+            this.router.navigateByUrl('/admin');
             break;
           case ClientType.company:
-            this.router.navigateByUrl('/.companyComponent');
+            this.router.navigateByUrl('/company');
             break;
           case ClientType.customer:
-            this.router.navigateByUrl('/.customercomponent');
+            this.router.navigateByUrl('/customer');
             break;
         }
       },

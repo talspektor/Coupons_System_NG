@@ -15,6 +15,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './components/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CompanyComponent } from './components/company/company.component';
+import { AdminComponent } from './components/admin/admin.component';
+import { CustomerComponent } from './components/customer/customer.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +30,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     Page404Component,
     CompaniesComponent,
     LoginComponent,
+    CompanyComponent,
+    AdminComponent,
+    CustomerComponent,
   ],
   imports: [
     BrowserModule,
