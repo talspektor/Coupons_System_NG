@@ -22,27 +22,4 @@ export class LoginService {
       loginItem.password;
     return this.httpClient.post<Login>(apiUrl, { withCredentials: true });
   }
-
-  // public login1({
-  //   clientTipe,
-  //   email,
-  //   password,
-  // }: {
-  //   clientTipe: String;
-  //   email: String;
-  //   password: String;
-  // }) {
-  //   let apiUrl =
-  //     'http://localhost:8080/login/' +
-  //     clientTipe +
-  //     '/' +
-  //     email +
-  //     '/' +
-  //     password;
-  //   ajax.post(apiUrl).pipe(
-  //     map((res: any) => {
-  //       return res.response;
-  //     })
-  //   );
-  // }
 }
