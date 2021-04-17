@@ -30,9 +30,10 @@ export class LoginComponent implements OnInit {
     this.loginService.login(this.loginItem).subscribe(
       (loginItem) => {
         this.isLoggedin = true;
-        localStorage.setItem('token', loginItem.token);
+        localStorage.setItem('token: ', loginItem.token);
         console.log('token: ' + localStorage.getItem('token'));
         localStorage.setItem('clientType', this.selectedValue);
+        console.log('clientType: ', localStorage.getItem('clientType'));
 
         switch (this.selectedValue) {
           case ClientType.admin:
