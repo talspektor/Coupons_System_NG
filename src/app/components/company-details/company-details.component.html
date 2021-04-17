@@ -1,1 +1,5 @@
-<p>company-details works!</p>
+<div *ngIf="company">
+  <legend>Company Details</legend>
+  <h3>Name: {{ company.name }}</h3>
+  <h3>Email: {{ company.email }}</h3>
+</div>
