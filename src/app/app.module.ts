@@ -18,6 +18,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CompanyComponent } from './components/company/company.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { CustomerComponent } from './components/customer/customer.component';
+import { LogoutComponent } from './components/logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { CustomerComponent } from './components/customer/customer.component';
     CompanyComponent,
     AdminComponent,
     CustomerComponent,
+    LogoutComponent,
   ],
   imports: [
     BrowserModule,

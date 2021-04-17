@@ -9,19 +9,13 @@ import { Company } from 'src/app/models/company.model';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  // the router object
-  private router: Router;
-  public companies!: Company[];
-
-  constructor(router: Router, private title: Title) {
-    this.router = router;
-  }
+  constructor(private title: Title) {}
 
   ngOnInit(): void {
-    this.title.setTitle('Home');
+    this.title.setTitle('Coupon System');
   }
 
-  public nav() {
-    this.router.navigate(['about']);
-  }
+  // public nav() {
+  //   this.router.navigate(['about']);
+  // }
 }

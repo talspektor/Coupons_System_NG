@@ -30,9 +30,9 @@ export class LoginComponent implements OnInit {
     this.loginService.login(this.loginItem).subscribe(
       (loginItem) => {
         this.isLoggedin = true;
-        sessionStorage.setItem('token', loginItem.token);
         localStorage.setItem('token', loginItem.token);
         console.log('token: ' + localStorage.getItem('token'));
+        localStorage.setItem('clientType', this.selectedValue);
 
         switch (this.selectedValue) {
           case ClientType.admin:
@@ -47,9 +47,7 @@ export class LoginComponent implements OnInit {
         }
       },
       (err) => {
-        console.log(this.loginItem.clientType);
-
-        alert('error: ' + err.message);
+        alert('error: ' + err.error.message);
         this.isLoggedin = false;
       }
     );
