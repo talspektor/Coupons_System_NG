@@ -1,1 +1,49 @@
-<p>add-customer works!</p>
+<div>
+  <form action="" #formInfo="ngForm">
+    <legend>Add Customer</legend>
+    <input
+      type="text"
+      name="firstName"
+      #firstNameInput
+      placeholder="first name"
+      [(ngModel)]="customer.firstName"
+      required
+      pattern="^[A-Z].*$"
+    />
+    <br />
+    <input
+      type="text"
+      name="lastName"
+      #lastNameInput
+      placeholder="last name"
+      [(ngModel)]="customer.lastName"
+      required
+      pattern="^[A-Z].*$"
+    />
+    <br />
+    <input
+      type="email"
+      name="email"
+      #emailInput
+      placeholder="email"
+      [(ngModel)]="customer.email"
+      required
+    />
+    <br />
+    <input
+      type="password"
+      name="password"
+      #emailName
+      placeholder="password"
+      [(ngModel)]="customer.password"
+      required
+    />
+    <br />
+    <input
+      type="button"
+      value="Add Customer"
+      (click)="addCustomer()"
+      [disabled]="formInfo.invalid"
+    />
+  </form>
+</div>

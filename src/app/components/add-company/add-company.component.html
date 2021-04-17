@@ -1,13 +1,14 @@
 <div>
-  <form action="">
+  <form action="" #formInfo="ngForm">
     <legend>Add Company</legend>
-    <br />
     <input
       name="name"
       #nameInput
       placeholder="name"
       type="text"
       [(ngModel)]="company.name"
+      required
+      pattern="^[A-Z].*$"
     />
     <br />
     <input
@@ -16,6 +17,7 @@
       placeholder="email"
       type="text"
       [(ngModel)]="company.email"
+      required
     />
     <br />
     <input
@@ -24,8 +26,14 @@
       placeholder="password"
       type="password"
       [(ngModel)]="company.password"
+      required
     />
     <br />
-    <button (click)="addCompany()">Add Comapny</button>
+    <input
+      type="button"
+      value="Add Company"
+      (click)="addCompany()"
+      [disabled]="formInfo.invalid"
+    />
   </form>
 </div>

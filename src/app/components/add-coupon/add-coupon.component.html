@@ -1,13 +1,14 @@
 <div>
-  <form action="">
+  <form action="" #formInfo="ngForm">
     <legend>Add Coupon</legend>
-    <br />
     <input
       name="title"
       #titleInput
       placeholder="title"
       type="text"
       [(ngModel)]="coupon.title"
+      required
+      pattern="^[A-Z].*$"
     />
     <br />
     <input
@@ -16,6 +17,7 @@
       placeholder="description"
       type="text"
       [(ngModel)]="coupon.description"
+      required
     />
     <br />
     <input
@@ -24,6 +26,7 @@
       placeholder="startDate"
       type="date"
       [(ngModel)]="coupon.startDate"
+      required
     />
     <br />
     <input
@@ -32,6 +35,7 @@
       placeholder="endDate"
       type="date"
       [(ngModel)]="coupon.endDate"
+      required
     />
     <br />
     <input
@@ -40,6 +44,7 @@
       placeholder="amount"
       type="number"
       [(ngModel)]="coupon.amount"
+      required
     />
     <br />
     <input
@@ -48,8 +53,14 @@
       placeholder="price"
       type="number"
       [(ngModel)]="coupon.price"
+      required
     />
     <br />
-    <button (click)="addCoupon()">Add Coupon</button>
+    <input
+      type="button"
+      value="Add Coupon"
+      (click)="addCoupon()"
+      [disabled]="formInfo.invalid"
+    />
   </form>
 </div>
