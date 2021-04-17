@@ -1,3 +1,4 @@
+import { CustomerDetailsComponent } from './components/customer-details/customer-details.component';
 import { CustomersComponent } from './components/customers/customers.component';
 import { AddCompanyComponent } from './components/add-company/add-company.component';
 import { AddCustomerComponent } from './components/add-customer/add-customer.component';
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'company-details', component: CompanyDetailsComponent },
   { path: 'customer', component: CustomerComponent },
   { path: 'customers', component: CustomersComponent },
+  { path: 'customer-details', component: CustomerDetailsComponent },
   { path: 'add-customer', component: AddCustomerComponent },
   { path: 'coupons', component: CouponsComponent },
   { path: 'add-coupon', component: AddCouponComponent },
