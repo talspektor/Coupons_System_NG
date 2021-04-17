@@ -1,0 +1,55 @@
+<div>
+  <form action="">
+    <legend>Add Coupon</legend>
+    <br />
+    <input
+      name="title"
+      #titleInput
+      placeholder="title"
+      type="text"
+      [(ngModel)]="coupon.title"
+    />
+    <br />
+    <input
+      name="description"
+      #descriptionInput
+      placeholder="description"
+      type="text"
+      [(ngModel)]="coupon.description"
+    />
+    <br />
+    <input
+      name="startDate"
+      #startDateInput
+      placeholder="startDate"
+      type="date"
+      [(ngModel)]="coupon.startDate"
+    />
+    <br />
+    <input
+      name="endDate"
+      #endDateInput
+      placeholder="endDate"
+      type="date"
+      [(ngModel)]="coupon.endDate"
+    />
+    <br />
+    <input
+      name="amount"
+      #amountInput
+      placeholder="amount"
+      type="number"
+      [(ngModel)]="coupon.amount"
+    />
+    <br />
+    <input
+      name="price"
+      #descriptionInput
+      placeholder="price"
+      type="number"
+      [(ngModel)]="coupon.price"
+    />
+    <br />
+    <button (click)="addCoupon()">Add Coupon</button>
+  </form>
+</div>

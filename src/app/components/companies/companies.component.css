@@ -18,6 +18,7 @@ tbody > tr:nth-child(even) {
 }
 
 div {
+  border: solid;
   height: 85%;
   overflow: auto;
 }

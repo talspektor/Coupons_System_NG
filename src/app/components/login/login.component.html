@@ -6,7 +6,6 @@
       <option *ngFor="let type of clientType">{{ type }}</option>
     </select>
     <br />
-    <br />
     <input
       name="email"
       #emailInput
@@ -16,7 +15,6 @@
       type="email"
     />
     <br />
-    <br />
     <input
       name="password"
       #passwordInput
@@ -25,7 +23,6 @@
       placeholder="password"
       type="password"
     />
-    <br />
     <br />
     <button (click)="login()">Login</button>
   </form>

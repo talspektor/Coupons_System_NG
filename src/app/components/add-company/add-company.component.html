@@ -1,0 +1,31 @@
+<div>
+  <form action="">
+    <legend>Add Company</legend>
+    <br />
+    <input
+      name="name"
+      #nameInput
+      placeholder="name"
+      type="text"
+      [(ngModel)]="company.name"
+    />
+    <br />
+    <input
+      name="email"
+      #emailInput
+      placeholder="email"
+      type="text"
+      [(ngModel)]="company.email"
+    />
+    <br />
+    <input
+      name="password"
+      #passwordInput
+      placeholder="password"
+      type="password"
+      [(ngModel)]="company.password"
+    />
+    <br />
+    <button (click)="addCompany()">Add Comapny</button>
+  </form>
+</div>

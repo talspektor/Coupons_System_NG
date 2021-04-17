@@ -19,6 +19,14 @@ import { CompanyComponent } from './components/company/company.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { CustomerComponent } from './components/customer/customer.component';
 import { LogoutComponent } from './components/logout/logout.component';
+import { CustomersComponent } from './components/customers/customers.component';
+import { AddCompanyComponent } from './components/add-company/add-company.component';
+import { AddCustomerComponent } from './components/add-customer/add-customer.component';
+import { CouponsComponent } from './components/coupons/coupons.component';
+import { CompanyDetailsComponent } from './components/company-details/company-details.component';
+import { AddCouponComponent } from './components/add-coupon/add-coupon.component';
+import { BuyCouponComponent } from './components/buy-coupon/buy-coupon.component';
+import { CustomerDetailsComponent } from './components/customer-details/customer-details.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +43,14 @@ import { LogoutComponent } from './components/logout/logout.component';
     AdminComponent,
     CustomerComponent,
     LogoutComponent,
+    CustomersComponent,
+    AddCompanyComponent,
+    AddCustomerComponent,
+    CouponsComponent,
+    CompanyDetailsComponent,
+    AddCouponComponent,
+    BuyCouponComponent,
+    CustomerDetailsComponent,
   ],
   imports: [
     BrowserModule,

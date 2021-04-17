@@ -1,10 +1,20 @@
 <div>
   <a routerLink="home" routerLinkActive="active-link">Home</a>
   <a routerLink="about" routerLinkActive="active-link">About</a>
-  <!-- <a
-    routerLink="add-company"
-    routerLinkActive="active-link"
-    *ngIf="clientType == 'ADMIN'"
-    >Add Comapny</a
-  > -->
+  <div #adminMenu *ngIf="clientType == 'ADMIN'">
+    <a routerLink="companies" routerLinkActive="active-link">Companies</a>
+    <a routerLink="customers" routerLinkActive="active-link">Customers</a>
+    <a routerLink="add-company" routerLinkActive="active-link">Add Company</a>
+    <a routerLink="add-customer" routerLinkActive="active-link">Add Customer</a>
+  </div>
+  <div #companyMenu *ngIf="clientType == 'COMPANY'">
+    <a routerLink="coupons" routerLinkActive="active-link">Coupons</a>
+    <a routerLink="add-coupon" routerLinkActive="active-link">Add Coupon</a>
+    <a routerLink="company-details" routerLinkActive="active-link">Details</a>
+  </div>
+  <div #customerMenu *ngIf="clientType == 'CUSTOMER'">
+    <a routerLink="coupons" routerLinkActive="active-link">Coupons</a>
+    <a routerLink="buy-coupon" routerLinkActive="active-link">Buy Coupon</a>
+    <a routerLink="customer-details" routerLinkActive="active-link">Details</a>
+  </div>
 </div>

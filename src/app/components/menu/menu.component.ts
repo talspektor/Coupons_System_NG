@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./menu.component.css'],
 })
 export class MenuComponent implements OnInit {
-  public clientType? = localStorage.getItem('clientType');
+  public clientType = localStorage.getItem('clientType');
 
   constructor() {}
 
