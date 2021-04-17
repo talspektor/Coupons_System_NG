@@ -1,3 +1,6 @@
+import { CustomersComponent } from './components/customers/customers.component';
+import { AddCompanyComponent } from './components/add-company/add-company.component';
+import { AddCustomerComponent } from './components/add-customer/add-customer.component';
 import { CompanyDetailsComponent } from './components/company-details/company-details.component';
 import { AddCouponComponent } from './components/add-coupon/add-coupon.component';
 import { CouponsComponent } from './components/coupons/coupons.component';
@@ -14,8 +17,11 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'companies', component: CompaniesComponent },
   { path: 'company', component: CompanyComponent },
+  { path: 'add-company', component: AddCompanyComponent },
   { path: 'company-details', component: CompanyDetailsComponent },
   { path: 'customer', component: CustomerComponent },
+  { path: 'customers', component: CustomersComponent },
+  { path: 'add-customer', component: AddCustomerComponent },
   { path: 'coupons', component: CouponsComponent },
   { path: 'add-coupon', component: AddCouponComponent },
   { path: 'admin', component: AdminComponent },

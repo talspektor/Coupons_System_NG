@@ -113,7 +113,7 @@ export class AdminService {
     );
   }
 
-  public getCugetAllCustomerstomer(): Observable<Customer[]> {
+  public getAllCustomers(): Observable<Customer[]> {
     return this.httpClient.get<Customer[]>(
       `http://localhost:8080/api/customers/`,
       {
