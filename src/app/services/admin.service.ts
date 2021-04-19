@@ -9,40 +9,29 @@ import { Customer } from '../models/customer.model';
 })
 export class AdminService {
   readonly requestOptions = {
-    headers: new HttpHeaders()
-      .set('Content-Type', 'application/json')
-      .set('token', localStorage.getItem('token')!),
+    headers: new HttpHeaders().set('token', localStorage.getItem('token')!),
   };
   constructor(private httpClient: HttpClient) {}
 
   public getAllCompanies(): Observable<Company[]> {
     console.log('getAllCompanies token: ' + localStorage.getItem('token'));
-    let theHeaders = new HttpHeaders();
-    theHeaders = theHeaders
-      .set('token', localStorage.getItem('token')!)
-      .set('Content-Type', 'application/json');
-    const options = { headers: theHeaders };
-    console.log(theHeaders.get('token'));
+    console.log(this.requestOptions.headers.get('token'));
 
     let APIUrl = 'http://localhost:8080/api/companies';
-    return this.httpClient.get<Company[]>(APIUrl, options);
+    return this.httpClient.get<Company[]>(APIUrl, this.requestOptions);
   }
 
   public getCompany(id: Number): Observable<Company> {
     return this.httpClient.get<Company>(
       `http://localhost:8080/api/company/${id}`,
-      {
-        withCredentials: true,
-      }
+      this.requestOptions
     );
   }
 
   public getCompanyByName(name: string): Observable<Company> {
     return this.httpClient.get<Company>(
       `http://localhost:8080/api/company/name/${name}`,
-      {
-        withCredentials: true,
-      }
+      this.requestOptions
     );
   }
 
@@ -50,9 +39,7 @@ export class AdminService {
     return this.httpClient.post<Company>(
       `http://localhost:8080/api/add-company/`,
       company,
-      {
-        withCredentials: true,
-      }
+      this.requestOptions
     );
   }
 
@@ -60,27 +47,21 @@ export class AdminService {
     return this.httpClient.put<Company>(
       'http://localhost:8080/api/update-company',
       company,
-      {
-        withCredentials: true,
-      }
+      this.requestOptions
     );
   }
 
   public deleteCompany(id: Number): Observable<Company> {
-    return this.httpClient.put<Company>(
+    return this.httpClient.delete<Company>(
       `http://localhost:8080/api/delete-company${id}`,
-      {
-        withCredentials: true,
-      }
+      this.requestOptions
     );
   }
 
   public getCustomer(id: Number): Observable<Customer> {
     return this.httpClient.get<Customer>(
       `http://localhost:8080/api/customer/${id}`,
-      {
-        withCredentials: true,
-      }
+      this.requestOptions
     );
   }
 
@@ -88,9 +69,7 @@ export class AdminService {
     return this.httpClient.post<Customer>(
       `http://localhost:8080/api/add-customer/`,
       customer,
-      {
-        withCredentials: true,
-      }
+      this.requestOptions
     );
   }
 
@@ -98,27 +77,21 @@ export class AdminService {
     return this.httpClient.put<Customer>(
       'http://localhost:8080/api/update-customer',
       customer,
-      {
-        withCredentials: true,
-      }
+      this.requestOptions
     );
   }
 
   public deleteCustomer(id: Number): Observable<Customer> {
     return this.httpClient.delete<Customer>(
       `http://localhost:8080/api/delete-customer${id}`,
-      {
-        withCredentials: true,
-      }
+      this.requestOptions
     );
   }
 
   public getAllCustomers(): Observable<Customer[]> {
     return this.httpClient.get<Customer[]>(
       `http://localhost:8080/api/customers/`,
-      {
-        withCredentials: true,
-      }
+      this.requestOptions
     );
   }
 }

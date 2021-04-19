@@ -9,83 +9,39 @@ import { Customer } from '../models/customer.model';
   providedIn: 'root',
 })
 export class CustomerService {
+  readonly requestOptions = {
+    headers: new HttpHeaders().set('token', localStorage.getItem('token')!),
+  };
+
   constructor(private httpClient: HttpClient) {}
 
   public purchaseCoupon(id: Number): Observable<Coupon> {
-    console.log('purchaseCoupon token' + localStorage.getItem('token'));
-    let theHeaders = new HttpHeaders();
-    theHeaders = theHeaders
-      .set('token', localStorage.getItem('token')!)
-      .set('Content-Type', 'application/json');
-    const options = { headers: theHeaders };
-    console.log(theHeaders.get('token'));
-
     let APIUrl = `http://localhost:8080/api/purchase-coupon/${id}`;
-    return this.httpClient.get<Coupon>(APIUrl, options);
+    return this.httpClient.get<Coupon>(APIUrl, this.requestOptions);
   }
 
   public getCustomerCoupons(): Observable<Coupon[]> {
-    console.log('purchaseCoupon token' + localStorage.getItem('token'));
-    let theHeaders = new HttpHeaders();
-    theHeaders = theHeaders
-      .set('token', localStorage.getItem('token')!)
-      .set('Content-Type', 'application/json');
-    const options = { headers: theHeaders };
-    console.log(theHeaders.get('token'));
-
     let APIUrl = `http://localhost:8080/api/customer/coupons`;
-    return this.httpClient.get<Coupon[]>(APIUrl, options);
+    return this.httpClient.get<Coupon[]>(APIUrl, this.requestOptions);
   }
 
   public getAllCoupons(): Observable<Coupon[]> {
-    console.log('purchaseCoupon token' + localStorage.getItem('token'));
-    let theHeaders = new HttpHeaders();
-    theHeaders = theHeaders
-      .set('token', localStorage.getItem('token')!)
-      .set('Content-Type', 'application/json');
-    const options = { headers: theHeaders };
-    console.log(theHeaders.get('token'));
-
     let APIUrl = `http://localhost:8080/api/coupons`;
-    return this.httpClient.get<Coupon[]>(APIUrl, options);
+    return this.httpClient.get<Coupon[]>(APIUrl, this.requestOptions);
   }
 
   public getCouponsByCategory(category: Category): Observable<Coupon[]> {
-    console.log('purchaseCoupon token' + localStorage.getItem('token'));
-    let theHeaders = new HttpHeaders();
-    theHeaders = theHeaders
-      .set('token', localStorage.getItem('token')!)
-      .set('Content-Type', 'application/json');
-    const options = { headers: theHeaders };
-    console.log(theHeaders.get('token'));
-
     let APIUrl = `http://localhost:8080/api/customer/coupons/category/${category}`;
-    return this.httpClient.get<Coupon[]>(APIUrl, options);
+    return this.httpClient.get<Coupon[]>(APIUrl, this.requestOptions);
   }
 
   public getCouponsByPriceLessThen(maxPrice: Number): Observable<Coupon[]> {
-    console.log('purchaseCoupon token' + localStorage.getItem('token'));
-    let theHeaders = new HttpHeaders();
-    theHeaders = theHeaders
-      .set('token', localStorage.getItem('token')!)
-      .set('Content-Type', 'application/json');
-    const options = { headers: theHeaders };
-    console.log(theHeaders.get('token'));
-
     let APIUrl = `http://localhost:8080/api/customer/coupons/maxPrice/${maxPrice}`;
-    return this.httpClient.get<Coupon[]>(APIUrl, options);
+    return this.httpClient.get<Coupon[]>(APIUrl, this.requestOptions);
   }
 
   public getCustomer(): Observable<Customer> {
-    console.log('purchaseCoupon token' + localStorage.getItem('token'));
-    let theHeaders = new HttpHeaders();
-    theHeaders = theHeaders
-      .set('token', localStorage.getItem('token')!)
-      .set('Content-Type', 'application/json');
-    const options = { headers: theHeaders };
-    console.log(theHeaders.get('token'));
-
     let APIUrl = `http://localhost:8080/api/customer`;
-    return this.httpClient.get<Customer>(APIUrl, options);
+    return this.httpClient.get<Customer>(APIUrl, this.requestOptions);
   }
 }

@@ -9,88 +9,41 @@ import { Coupon } from '../models/coupon.model';
 })
 export class CompanyService {
   readonly requestOptions = {
-    headers: new HttpHeaders()
-      .set('Content-Type', 'application/json')
-      .set('token', localStorage.getItem('token')!),
+    headers: new HttpHeaders().set('token', localStorage.getItem('token')!),
   };
 
   constructor(private httpClient: HttpClient) {}
 
   public addCoupon(coupon: Coupon): Observable<Coupon> {
     console.log('addCoupon token: ' + localStorage.getItem('token'));
-    let theHeaders = new HttpHeaders();
-    theHeaders = theHeaders
-      .set('token', localStorage.getItem('token')!)
-      .set('Content-Type', 'application/json');
-    const options = { headers: theHeaders };
-    console.log(theHeaders.get('token'));
+    console.log(this.requestOptions.headers.get('token'));
 
     let APIUrl = 'http://localhost:8080/api/add-coupon';
-    return this.httpClient.post<Coupon>(APIUrl, coupon, options);
+    return this.httpClient.post<Coupon>(APIUrl, coupon, this.requestOptions);
   }
 
   public updateCoupon(coupon: Coupon): Observable<Coupon> {
-    console.log('updateCoupon token: ' + localStorage.getItem('token'));
-    let theHeaders = new HttpHeaders();
-    theHeaders = theHeaders
-      .set('token', localStorage.getItem('token')!)
-      .set('Content-Type', 'application/json');
-    const options = { headers: theHeaders };
-    console.log(theHeaders.get('token'));
-
     let APIUrl = 'http://localhost:8080/api/update-coupon';
-    return this.httpClient.put<Coupon>(APIUrl, coupon, options);
+    return this.httpClient.put<Coupon>(APIUrl, coupon, this.requestOptions);
   }
 
   public deleteCoupon(id: Number): Observable<Coupon> {
-    console.log('deleteCoupon token: ' + localStorage.getItem('token'));
-    let theHeaders = new HttpHeaders();
-    theHeaders = theHeaders
-      .set('token', localStorage.getItem('token')!)
-      .set('Content-Type', 'application/json');
-    const options = { headers: theHeaders };
-    console.log(theHeaders.get('token'));
-
     let APIUrl = `http://localhost:8080/api/update-coupon/${id}`;
-    return this.httpClient.put<Coupon>(APIUrl, options);
+    return this.httpClient.put<Coupon>(APIUrl, this.requestOptions);
   }
 
   public getAllCoupons(): Observable<Coupon[]> {
-    console.log('getAllCoupons token: ' + localStorage.getItem('token'));
-    let theHeaders = new HttpHeaders();
-    theHeaders = theHeaders
-      .set('token', localStorage.getItem('token')!)
-      .set('Content-Type', 'application/json');
-    const options = { headers: theHeaders };
-    console.log(theHeaders.get('token'));
-
     let APIUrl = 'http://localhost:8080/api/company/coupons';
-    return this.httpClient.get<Coupon[]>(APIUrl, options);
+    return this.httpClient.get<Coupon[]>(APIUrl, this.requestOptions);
   }
 
   public getCouponsByPrice(naxPrice: Number): Observable<Coupon[]> {
-    console.log('getCouponsByPrice token: ' + localStorage.getItem('token'));
-    let theHeaders = new HttpHeaders();
-    theHeaders = theHeaders
-      .set('token', localStorage.getItem('token')!)
-      .set('Content-Type', 'application/json');
-    const options = { headers: theHeaders };
-    console.log(theHeaders.get('token'));
-
     let APIUrl = `http://localhost:8080/api/company/coupons${naxPrice}`;
-    return this.httpClient.get<Coupon[]>(APIUrl, options);
+    return this.httpClient.get<Coupon[]>(APIUrl, this.requestOptions);
   }
 
   public getCompanyDetails(): Observable<Company> {
-    console.log('getCompanyDetails token: ' + localStorage.getItem('token'));
-    let theHeaders = new HttpHeaders();
-    theHeaders = theHeaders
-      .set('token', localStorage.getItem('token')!)
-      .set('Content-Type', 'application/json');
-    const options = { headers: theHeaders };
-    console.log(theHeaders.get('token'));
-
     let APIUrl = `http://localhost:8080/api/company`;
-    return this.httpClient.get<Company>(APIUrl, options);
+    return this.httpClient.get<Company>(APIUrl, this.requestOptions);
   }
 }

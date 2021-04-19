@@ -6,18 +6,16 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class LogOutService {
+  readonly requestOptions = {
+    headers: new HttpHeaders().set('token', localStorage.getItem('token')!),
+  };
+
   constructor(private httpClient: HttpClient) {}
 
   public logOut(): Observable<void> {
     console.log('logout');
-    let theHeaders = new HttpHeaders();
-    theHeaders = theHeaders
-      .set('token', localStorage.getItem('token')!)
-      .set('Content-Type', 'application/json');
-    const options = { headers: theHeaders };
-    console.log(theHeaders.get('token'));
 
     let apiUrl = 'http://localhost:8080/logout/';
-    return this.httpClient.post<void>(apiUrl, options);
+    return this.httpClient.post<void>(apiUrl, this.requestOptions);
   }
 }
