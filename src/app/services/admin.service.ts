@@ -3,15 +3,22 @@ import { Observable } from 'rxjs';
 import { Company } from '../models/company.model';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Customer } from '../models/customer.model';
+import { SharedService } from './shared.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AdminService {
   readonly requestOptions = {
-    headers: new HttpHeaders().set('token', localStorage.getItem('token')!),
+    headers: new HttpHeaders().set(
+      this.sharedService.TOKEN,
+      localStorage.getItem(this.sharedService.TOKEN)!
+    ),
   };
-  constructor(private httpClient: HttpClient) {}
+  constructor(
+    private httpClient: HttpClient,
+    private sharedService: SharedService
+  ) {}
 
   public getAllCompanies(): Observable<Company[]> {
     console.log('getAllCompanies token: ' + localStorage.getItem('token'));

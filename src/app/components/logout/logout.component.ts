@@ -14,8 +14,7 @@ export class LogoutComponent implements OnInit {
   public logout() {
     this.logoutService.logOut().subscribe(
       () => {
-        alert('logout');
-        localStorage.setItem('token', '');
+        localStorage.removeItem('token');
       },
       (error) => {
         alert('error: ' + error.error.mesage);

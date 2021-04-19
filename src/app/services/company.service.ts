@@ -3,16 +3,23 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Company } from '../models/company.model';
 import { Coupon } from '../models/coupon.model';
+import { SharedService } from './shared.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CompanyService {
   readonly requestOptions = {
-    headers: new HttpHeaders().set('token', localStorage.getItem('token')!),
+    headers: new HttpHeaders().set(
+      this.sharedService.TOKEN,
+      localStorage.getItem(this.sharedService.TOKEN)!
+    ),
   };
 
-  constructor(private httpClient: HttpClient) {}
+  constructor(
+    private httpClient: HttpClient,
+    private sharedService: SharedService
+  ) {}
 
   public addCoupon(coupon: Coupon): Observable<Coupon> {
     console.log('addCoupon token: ' + localStorage.getItem('token'));

@@ -4,16 +4,23 @@ import { Injectable } from '@angular/core';
 import { Coupon } from '../models/coupon.model';
 import { Category } from '../models/category.model';
 import { Customer } from '../models/customer.model';
+import { SharedService } from './shared.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CustomerService {
   readonly requestOptions = {
-    headers: new HttpHeaders().set('token', localStorage.getItem('token')!),
+    headers: new HttpHeaders().set(
+      this.sharedService.TOKEN,
+      localStorage.getItem(this.sharedService.TOKEN)!
+    ),
   };
 
-  constructor(private httpClient: HttpClient) {}
+  constructor(
+    private httpClient: HttpClient,
+    private sharedService: SharedService
+  ) {}
 
   public purchaseCoupon(id: Number): Observable<Coupon> {
     let APIUrl = `http://localhost:8080/api/purchase-coupon/${id}`;

@@ -6,9 +6,13 @@ import { ClientType } from '../models/client-type.model';
   providedIn: 'root',
 })
 export class SharedService {
-
+  public readonly TOKEN = 'token';
+  public readonly CLIENT_TYPE = 'clientType';
+  public readonly DOMAIN = 'localhots';
+  public readonly PORT = '8080';
+  public readonly BASE_PATH = 'http://' + this.DOMAIN + ':' + this.PORT;
   public token: string = '';
-  public clientType?: ClientType
+  public clientType?: ClientType;
   public tokenUpdate?: Observable<String>;
   public tokenObserver?: Observer<String>;
   public clientObserver?: Observer<ClientType>;
@@ -18,9 +22,9 @@ export class SharedService {
     this.token = Observable.create((observer: Observer<String>) => {
       this.tokenObserver = observer;
     });
-    this.clientType = Observable.create((observer: Observer<ClientType>)=>{
-      this.clientObserver = observer
-    })
+    this.clientType = Observable.create((observer: Observer<ClientType>) => {
+      this.clientObserver = observer;
+    });
   }
 
   public updateToken(newValue: string) {
@@ -30,6 +34,6 @@ export class SharedService {
 
   public updateClientType(newValue: ClientType) {
     this.clientType = newValue;
-    this.clientObserver?.next(this.clientType)
+    this.clientObserver?.next(this.clientType);
   }
 }

@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { ClientType } from 'src/app/models/client-type.model';
 import { LoginService } from 'src/app/services/login.service';
+import { SharedService } from 'src/app/services/shared.service';
 
 @Component({
   selector: 'app-login',
@@ -21,7 +22,11 @@ export class LoginComponent implements OnInit {
   public isLoggedin = false;
   public selectedValue = ClientType.admin;
 
-  constructor(private loginService: LoginService, private router: Router) {}
+  constructor(
+    private loginService: LoginService,
+    private sharedService: SharedService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {}
 
@@ -30,10 +35,16 @@ export class LoginComponent implements OnInit {
     this.loginService.login(this.loginItem).subscribe(
       (loginItem) => {
         this.isLoggedin = true;
-        localStorage.setItem('token', loginItem.token);
-        console.log('token: ' + localStorage.getItem('token'));
-        localStorage.setItem('clientType', this.selectedValue);
-        console.log('clientType: ', localStorage.getItem('clientType'));
+        localStorage.setItem(this.sharedService.TOKEN, loginItem.token);
+        console.log('token: ' + localStorage.getItem(this.sharedService.TOKEN));
+        localStorage.setItem(
+          this.sharedService.CLIENT_TYPE,
+          this.selectedValue
+        );
+        console.log(
+          'clientType: ',
+          localStorage.getItem(this.sharedService.CLIENT_TYPE)
+        );
 
         switch (this.selectedValue) {
           case ClientType.admin:
