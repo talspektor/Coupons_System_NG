@@ -59,7 +59,7 @@ export class LoginComponent implements OnInit {
         }
       },
       (err) => {
-        alert('error: ' + err);
+        alert('error: ' + err.error.message);
         this.isLoggedin = false;
       }
     );

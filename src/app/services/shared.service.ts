@@ -1,6 +1,7 @@
 import { Observable, Observer } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { ClientType } from '../models/client-type.model';
+import { HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
@@ -11,6 +12,13 @@ export class SharedService {
   public readonly DOMAIN = 'localhots';
   public readonly PORT = '8080';
   public readonly BASE_PATH = 'http://' + this.DOMAIN + ':' + this.PORT;
+  readonly requestOptions = {
+    headers: new HttpHeaders().set(
+      this.TOKEN,
+      localStorage.getItem(this.TOKEN)!
+    ),
+  };
+
   public token: string = '';
   public clientType?: ClientType;
   public tokenUpdate?: Observable<String>;
