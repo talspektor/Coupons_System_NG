@@ -15,12 +15,15 @@ export class AddCustomerComponent implements OnInit {
   ngOnInit(): void {}
 
   public addCustomer() {
-    alert('addCustomer: ' + this.customer.firstName);
+    console.dir('addCustomer: ' + this.customer.firstName);
     this.adminService.addCustomer(this.customer).subscribe(
       (customer) => {
-        alert('customer added id=' + customer.id);
+        alert(
+          'customer added name=' + customer.firstName + ' ' + customer.lastName
+        );
       },
       (error) => {
+        console.dir(error);
         alert('arror: ' + error.error.message);
       }
     );

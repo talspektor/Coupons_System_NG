@@ -11,9 +11,8 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let c of customers">
+      <tr *ngFor="let c of customers" routerLink="/customer-details/{{ c.id }}">
         <td>{{ c.firstName }}</td>
-        <td>{{ c.lastName }}</td>
         <td>{{ c.lastName }}</td>
         <td>{{ c.email }}</td>
       </tr>

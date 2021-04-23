@@ -15,10 +15,9 @@ export class AddCompanyComponent implements OnInit {
   ngOnInit(): void {}
 
   public addCompany() {
-    alert('addCompany');
     this.adminService.addCompany(this.company).subscribe(
       (company) => {
-        alert('success: company id =' + company.id);
+        alert('success: adding company name =' + company.name);
       },
       (error) => {
         alert('Error: ' + error.error.message);

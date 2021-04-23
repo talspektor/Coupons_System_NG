@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Company } from 'src/app/models/company.model';
+import { AdminService } from 'src/app/services/admin.service';
 import { CompanyService } from 'src/app/services/company.service';
 
 @Component({
@@ -13,17 +14,19 @@ export class CompanyDetailsComponent implements OnInit {
 
   constructor(
     private activatedRout: ActivatedRoute,
-    private companyService: CompanyService
+    private companyService: CompanyService,
+    private adminService: AdminService
   ) {}
 
   ngOnInit(): void {
-    // this.company = new Company(0, 'a', 'c', 'd');
     let id = this.activatedRout.snapshot.params.id;
-    this.companyService.getCompanyDetails().subscribe(
+
+    this.adminService.getCompany(id).subscribe(
       (company) => {
         this.company = company;
       },
       (error) => {
+        console.dir(error.error);
         alert('error: ' + error.error.message);
       }
     );

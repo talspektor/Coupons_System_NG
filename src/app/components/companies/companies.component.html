@@ -10,7 +10,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let c of companies">
+      <tr *ngFor="let c of companies" routerLink="/company-details/{{ c.id }}">
         <td>{{ c.name }}</td>
         <td>{{ c.email }}</td>
       </tr>

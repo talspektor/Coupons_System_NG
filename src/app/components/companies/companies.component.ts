@@ -18,7 +18,7 @@ export class CompaniesComponent implements OnInit {
         this.companies = arr;
       },
       (err) => {
-        console.dir('error: ' + err);
+        console.dir('error: ' + err.error.message);
       }
     );
   }
