@@ -11,6 +11,9 @@
         <th>End Date</th>
         <th>Amount Date</th>
         <th>Price Date</th>
+        <th>Categoty</th>
+        <th>Delete</th>
+        <th>Edit</th>
       </tr>
     </thead>
     <tbody>
@@ -21,6 +24,9 @@
         <td>{{ c.endDate }}</td>
         <td>{{ c.amount }}</td>
         <td>{{ c.price }}</td>
+        <td>{{ c.category }}</td>
+        <td (click)="deleteCoupon(c)">Delete</td>
+        <td (click)="updateCoupon(c)">Edit</td>
       </tr>
     </tbody>
   </table>

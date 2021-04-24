@@ -26,7 +26,7 @@ export class AddCouponComponent implements OnInit {
     this.coupon.category = this.selectedCategory;
     this.companyService.addCoupon(this.coupon).subscribe(
       (coupon) => {
-        alert('coupon added id=' + coupon.id);
+        alert('coupon added title = ' + coupon.title);
       },
       (error) => {
         alert('error: ' + error.error.message);

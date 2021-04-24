@@ -1,7 +1,8 @@
 <div>
   <form action="" #formInfo="ngForm">
-    <legend>Add Coupon</legend>
+    <legend>Edit Coupon</legend>
     <input
+      value="{{ coupon.title }}"
       name="title"
       #titleInput
       placeholder="title"
@@ -12,6 +13,7 @@
     />
     <br />
     <input
+      value="{{ coupon.description }}"
       name="description"
       #descriptionInput
       placeholder="description"
@@ -27,6 +29,7 @@
     </select>
     <br />
     <input
+      value="{{ coupon.startDate }}"
       name="startDate"
       #startDateInput
       placeholder="startDate"
@@ -36,6 +39,7 @@
     />
     <br />
     <input
+      value="{{ coupon.endDate }}"
       name="endDate"
       #endDateInput
       placeholder="endDate"
@@ -45,6 +49,7 @@
     />
     <br />
     <input
+      value="{{ coupon.amount }}"
       name="amount"
       #amountInput
       placeholder="amount"
@@ -54,6 +59,7 @@
     />
     <br />
     <input
+      value="{{ coupon.price }}"
       name="price"
       #descriptionInput
       placeholder="price"
@@ -64,8 +70,8 @@
     <br />
     <input
       type="button"
-      value="Add Coupon"
-      (click)="addCoupon()"
+      value="Edit Coupon"
+      (click)="editCoupon()"
       [disabled]="formInfo.invalid"
     />
   </form>

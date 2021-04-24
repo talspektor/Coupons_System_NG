@@ -1,5 +1,6 @@
 input,
-select {
+select,
+span {
   margin: 5px;
 }
 

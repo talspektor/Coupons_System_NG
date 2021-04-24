@@ -21,7 +21,7 @@ export class CompanyDetailsComponent implements OnInit {
   ngOnInit(): void {
     let id = this.activatedRout.snapshot.params.id;
 
-    this.adminService.getCompany(id).subscribe(
+    this.companyService.getCompanyDetails().subscribe(
       (company) => {
         this.company = company;
       },

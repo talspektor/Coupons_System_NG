@@ -29,8 +29,13 @@ export class CompanyService {
   }
 
   public deleteCoupon(id: Number): Observable<Coupon> {
-    let APIUrl = `http://localhost:8080/api/update-coupon/${id}`;
-    return this.httpClient.put<Coupon>(APIUrl, this.requestOptions);
+    let APIUrl = `http://localhost:8080/api/delete-coupon/${id}`;
+    return this.httpClient.delete<Coupon>(APIUrl, this.requestOptions);
+  }
+
+  public getCoupon(id: Number): Observable<Coupon> {
+    let APIUrl = `http://localhost:8080/api/coupon/${id}`;
+    return this.httpClient.get<Coupon>(APIUrl, this.requestOptions);
   }
 
   public getAllCoupons(): Observable<Coupon[]> {

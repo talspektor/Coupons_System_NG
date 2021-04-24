@@ -27,6 +27,7 @@ import { CompanyDetailsComponent } from './components/company-details/company-de
 import { AddCouponComponent } from './components/add-coupon/add-coupon.component';
 import { BuyCouponComponent } from './components/buy-coupon/buy-coupon.component';
 import { CustomerDetailsComponent } from './components/customer-details/customer-details.component';
+import { UpdateCouponComponent } from './components/update-coupon/update-coupon.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { CustomerDetailsComponent } from './components/customer-details/customer
     AddCouponComponent,
     BuyCouponComponent,
     CustomerDetailsComponent,
+    UpdateCouponComponent,
   ],
   imports: [
     BrowserModule,
