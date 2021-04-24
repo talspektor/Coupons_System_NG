@@ -20,6 +20,10 @@
       required
     />
     <br />
+    <select name="categoty" #categorySelect [(ngModel)]="selectedCategory">
+      <option *ngFor="let categoty of categories">{{ categoty }}</option>
+    </select>
+    <br />
     <input
       name="startDate"
       #startDateInput

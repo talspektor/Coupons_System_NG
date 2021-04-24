@@ -1,3 +1,4 @@
+import { Category } from 'src/app/models/category.model';
 import { Component, OnInit } from '@angular/core';
 import { Coupon } from 'src/app/models/coupon.model';
 import { CompanyService } from 'src/app/services/company.service';
@@ -9,13 +10,20 @@ import { CompanyService } from 'src/app/services/company.service';
 })
 export class AddCouponComponent implements OnInit {
   public coupon = new Coupon();
+  public categories: Category[] = [
+    Category.ELECTRICITY,
+    Category.FOOD,
+    Category.SPORTS,
+    Category.VACATION,
+  ];
+  public selectedCategory = Category.ELECTRICITY;
 
   constructor(private companyService: CompanyService) {}
 
   ngOnInit(): void {}
 
   public addCoupon() {
-    alert('addCoupon: ' + this.coupon.description);
+    this.coupon.category = this.selectedCategory;
     this.companyService.addCoupon(this.coupon).subscribe(
       (coupon) => {
         alert('coupon added id=' + coupon.id);

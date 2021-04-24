@@ -1,6 +1,6 @@
 export enum Category {
-  FOOD,
-  VACATION,
-  SPORTS,
-  ELECTRICITY,
+  FOOD = 'FOOD',
+  VACATION = 'VACATION',
+  SPORTS = 'SPORT',
+  ELECTRICITY = 'ELECTRICITY',
 }

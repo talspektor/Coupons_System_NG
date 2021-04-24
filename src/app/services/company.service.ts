@@ -17,8 +17,7 @@ export class CompanyService {
   ) {}
 
   public addCoupon(coupon: Coupon): Observable<Coupon> {
-    console.log('addCoupon token: ' + localStorage.getItem('token'));
-    console.log(this.requestOptions.headers.get('token'));
+    console.log('addCoupon token: ' + this.requestOptions.headers.get('token'));
 
     let APIUrl = 'http://localhost:8080/api/add-coupon';
     return this.httpClient.post<Coupon>(APIUrl, coupon, this.requestOptions);
