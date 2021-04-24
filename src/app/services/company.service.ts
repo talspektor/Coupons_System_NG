@@ -49,6 +49,8 @@ export class CompanyService {
   }
 
   public getCompanyDetails(): Observable<Company> {
+    console.log('companyService: getCompanyDetails()');
+
     let APIUrl = `http://localhost:8080/api/company`;
     return this.httpClient.get<Company>(APIUrl, this.requestOptions);
   }

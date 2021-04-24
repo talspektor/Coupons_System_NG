@@ -27,6 +27,8 @@ export class AdminService {
   }
 
   public getCompany(id: Number): Observable<Company> {
+    console.log('adminService: getcompany()');
+
     return this.httpClient.get<Company>(
       `http://localhost:8080/api/company/${id}`,
       this.requestOptions
@@ -58,7 +60,7 @@ export class AdminService {
 
   public deleteCompany(id: Number): Observable<Company> {
     return this.httpClient.delete<Company>(
-      `http://localhost:8080/api/delete-company${id}`,
+      `http://localhost:8080/api/delete-company/${id}`,
       this.requestOptions
     );
   }

@@ -19,23 +19,32 @@ export class CompaniesComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.getAllCompanies();
+  }
+
+  public getAllCompanies() {
+    console.log('getCompanies');
+
     this.adminService.getAllCompanies().subscribe(
       (arr) => {
         this.companies = arr;
       },
       (err) => {
-        console.dir('error: ' + err.error.message);
+        alert('fail to get companies error: ' + err.error.message);
       }
     );
   }
 
   public deleteCompany(company: Company) {
+    console.log('deletecompany');
+
     this.adminService.deleteCompany(company.id!).subscribe(
       () => {
         alert('company deleted');
+        this.getAllCompanies();
       },
       (err) => {
-        console.dir('error: ' + err.error.message);
+        alert('fail to delete company error: ' + err.error.message);
       }
     );
   }
