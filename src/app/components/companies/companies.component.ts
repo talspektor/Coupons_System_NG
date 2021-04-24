@@ -1,6 +1,8 @@
+import { StateServiceService } from './../../services/state-service.service';
 import { Component, OnInit } from '@angular/core';
 import { Company } from 'src/app/models/company.model';
 import { AdminService } from 'src/app/services/admin.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-companies',
@@ -10,7 +12,11 @@ import { AdminService } from 'src/app/services/admin.service';
 export class CompaniesComponent implements OnInit {
   public companies!: Company[];
 
-  constructor(private adminService: AdminService) {}
+  constructor(
+    private adminService: AdminService,
+    private stateService: StateServiceService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.adminService.getAllCompanies().subscribe(
@@ -21,5 +27,21 @@ export class CompaniesComponent implements OnInit {
         console.dir('error: ' + err.error.message);
       }
     );
+  }
+
+  public deleteCompany(company: Company) {
+    this.adminService.deleteCompany(company.id!).subscribe(
+      () => {
+        alert('company deleted');
+      },
+      (err) => {
+        console.dir('error: ' + err.error.message);
+      }
+    );
+  }
+
+  public updateCompany(company: Company) {
+    this.stateService.company = company;
+    this.router.navigate(['/update-company']);
   }
 }

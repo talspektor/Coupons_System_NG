@@ -7,12 +7,16 @@
       <tr>
         <th>Name</th>
         <th>Email</th>
+        <th>Delete</th>
+        <th>Edit</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let c of companies" routerLink="/company-details/{{ c.id }}">
         <td>{{ c.name }}</td>
         <td>{{ c.email }}</td>
+        <td (click)="deleteCompany(c)">Delete</td>
+        <td (click)="updateCompany(c)">Edit</td>
       </tr>
     </tbody>
   </table>
