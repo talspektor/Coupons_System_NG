@@ -12,8 +12,9 @@
         <th>Amount Date</th>
         <th>Price Date</th>
         <th>Categoty</th>
-        <th>Delete</th>
-        <th>Edit</th>
+        <th *ngIf="clientType == 'COMPANY'">Delete</th>
+        <th *ngIf="clientType == 'COMPANY'">Edit</th>
+        <th *ngIf="clientType == 'CUSTOMER'">Buy</th>
       </tr>
     </thead>
     <tbody>
@@ -25,8 +26,11 @@
         <td>{{ c.amount }}</td>
         <td>{{ c.price }}</td>
         <td>{{ c.category }}</td>
-        <td (click)="deleteCoupon(c)">Delete</td>
-        <td (click)="updateCoupon(c)">Edit</td>
+        <td *ngIf="clientType == 'COMPANY'" (click)="deleteCoupon(c)">
+          Delete
+        </td>
+        <td *ngIf="clientType == 'COMPANY'" (click)="updateCoupon(c)">Edit</td>
+        <td *ngIf="clientType == 'CUSTOMER'" (click)="buyCoupn(c)">Buy</td>
       </tr>
     </tbody>
   </table>

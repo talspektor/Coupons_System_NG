@@ -1,3 +1,5 @@
+import { CustomerCouponsComponent } from './components/customer-coupons/customer-coupons.component';
+import { BuyCouponComponent } from './components/buy-coupon/buy-coupon.component';
 import { UpdateCompanyComponent } from './components/update-company/update-company.component';
 import { UpdateCouponComponent } from './components/update-coupon/update-coupon.component';
 import { CustomerDetailsComponent } from './components/customer-details/customer-details.component';
@@ -30,6 +32,8 @@ const routes: Routes = [
   { path: 'coupons', component: CouponsComponent },
   { path: 'update-coupon', component: UpdateCouponComponent },
   { path: 'add-coupon', component: AddCouponComponent },
+  { path: 'buy-coupon', component: BuyCouponComponent },
+  { path: 'customer-coupons', component: CustomerCouponsComponent },
   { path: 'admin', component: AdminComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', component: Page404Component },

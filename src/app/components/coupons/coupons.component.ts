@@ -1,3 +1,6 @@
+import { ClientType } from './../../models/client-type.model';
+import { SharedService } from 'src/app/services/shared.service';
+import { CustomerService } from './../../services/customer.service';
 import { StateServiceService } from './../../services/state-service.service';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
@@ -11,9 +14,13 @@ import { CompanyService } from 'src/app/services/company.service';
 })
 export class CouponsComponent implements OnInit {
   public coupons!: Coupon[];
+  public clientType = localStorage.getItem(this.sharedService.CLIENT_TYPE);
+
   constructor(
     private companyService: CompanyService,
+    private customerService: CustomerService,
     private stateService: StateServiceService,
+    private sharedService: SharedService,
     private router: Router
   ) {}
 
@@ -22,14 +29,28 @@ export class CouponsComponent implements OnInit {
   }
 
   public getAllCoupons() {
-    this.companyService.getAllCoupons().subscribe(
-      (coupons) => {
-        this.coupons = coupons;
-      },
-      (error) => {
-        alert('arror: ' + error.error.message);
-      }
-    );
+    if (
+      localStorage.getItem(this.sharedService.CLIENT_TYPE) ==
+      ClientType.customer
+    ) {
+      this.customerService.getAllCoupons().subscribe(
+        (coupons) => {
+          this.coupons = coupons;
+        },
+        (error) => {
+          alert('arror: ' + error.error.message);
+        }
+      );
+    } else {
+      this.companyService.getAllCoupons().subscribe(
+        (coupons) => {
+          this.coupons = coupons;
+        },
+        (error) => {
+          alert('arror: ' + error.error.message);
+        }
+      );
+    }
   }
 
   public updateCoupon(coupon: Coupon) {
@@ -41,6 +62,18 @@ export class CouponsComponent implements OnInit {
     this.companyService.deleteCoupon(coupon.id!).subscribe(
       () => {
         alert('coupon deleted');
+        this.getAllCoupons();
+      },
+      (error) => {
+        alert('arror: ' + error.error.message);
+      }
+    );
+  }
+
+  public buyCoupn(coupon: Coupon) {
+    this.customerService.purchaseCoupon(coupon.id!).subscribe(
+      () => {
+        alert('coupon purchased');
         this.getAllCoupons();
       },
       (error) => {
