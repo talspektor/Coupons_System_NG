@@ -1,0 +1,24 @@
+table {
+  background-color: green;
+  margin: auto;
+}
+
+table,
+th,
+td {
+  border: solid black;
+}
+
+tbody > tr:nth-child(odd) {
+  background-color: lightblue;
+}
+
+tbody > tr:nth-child(even) {
+  background-color: lightcoral;
+}
+
+div {
+  border: solid;
+  height: 85%;
+  overflow: auto;
+}

@@ -73,7 +73,6 @@ export class CouponsComponent implements OnInit {
   public buyCoupn(coupon: Coupon) {
     this.customerService.purchaseCoupon(coupon.id!).subscribe(
       () => {
-        alert('coupon purchased');
         this.getAllCoupons();
       },
       (error) => {

@@ -18,8 +18,10 @@ export class CustomerService {
   ) {}
 
   public purchaseCoupon(id: Number): Observable<Coupon> {
+    console.log('purchaseCoupon id=' + id);
+
     let APIUrl = `http://localhost:8080/api/purchase-coupon/${id}`;
-    return this.httpClient.get<Coupon>(APIUrl, this.requestOptions);
+    return this.httpClient.put<Coupon>(APIUrl, null, this.requestOptions);
   }
 
   public getCustomerCoupons(): Observable<Coupon[]> {

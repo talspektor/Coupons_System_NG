@@ -1,1 +1,29 @@
-<p>customer-coupons works!</p>
+<div>
+  <table>
+    <caption>
+      My Coupons
+    </caption>
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Amount Date</th>
+        <th>Price Date</th>
+        <th>Categoty</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let c of coupons">
+        <td>{{ c.title }}</td>
+        <td>{{ c.description }}</td>
+        <td>{{ c.startDate }}</td>
+        <td>{{ c.endDate }}</td>
+        <td>{{ c.amount }}</td>
+        <td>{{ c.price }}</td>
+        <td>{{ c.category }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
