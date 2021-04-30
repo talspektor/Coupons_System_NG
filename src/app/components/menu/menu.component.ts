@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { ClientType } from './../../models/client-type.model';
 import { SharedService } from 'src/app/services/shared.service';
 import { Component, OnInit } from '@angular/core';
@@ -12,11 +13,14 @@ export class MenuComponent implements OnInit {
   public clientType!: String;
   public isLogin!: Boolean;
 
-  constructor(private sharedService: SharedService) {}
+  constructor(private sharedService: SharedService, private router: Router) {}
 
   ngOnInit(): void {
     this.sharedService.isLoginObservable.subscribe((isLogin) => {
       this.isLogin = isLogin;
+      if (!this.isLogin) {
+        this.router.navigateByUrl('/home');
+      }
     });
     this.sharedService.clientTypeObservable.subscribe((type) => {
       this.clientType = type;

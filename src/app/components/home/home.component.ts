@@ -1,8 +1,6 @@
 import { SharedService } from 'src/app/services/shared.service';
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Company } from 'src/app/models/company.model';
 
 @Component({
   selector: 'app-home',
@@ -17,8 +15,4 @@ export class HomeComponent implements OnInit {
     this.title.setTitle('Coupon System');
     this.isLogin = this.sharedService.isLogin;
   }
-
-  // public nav() {
-  //   this.router.navigate(['about']);
-  // }
 }
