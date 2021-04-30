@@ -1,3 +1,4 @@
+import { ClientType } from './../models/client-type.model';
 import { Observable, Observer } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { HttpHeaders } from '@angular/common/http';
@@ -9,12 +10,15 @@ export class SharedService {
   // Global Constants
   public readonly TOKEN = 'token';
   public readonly CLIENT_TYPE = 'clientType';
+  public readonly IS_LOGIN = 'isLogin';
   public readonly DOMAIN = 'localhots';
   public readonly PORT = '8080';
   public readonly BASE_PATH = 'http://' + this.DOMAIN + ':' + this.PORT;
   // Global variables
-  public token!: string;
-  public clientType!: string;
+  public token = localStorage.getItem(this.TOKEN);
+  public type = localStorage.getItem(this.CLIENT_TYPE);
+  public clientType =
+    localStorage.getItem(this.CLIENT_TYPE) ?? ClientType.admin;
   public isLogin!: boolean;
   public requestOptions!: { headers: HttpHeaders };
   // Observables
@@ -48,12 +52,14 @@ export class SharedService {
     this.requestOptions = {
       headers: new HttpHeaders().set(this.TOKEN, this.token),
     };
+    localStorage.setItem(this.TOKEN, newValue);
     this.tokenObserver?.next(newValue);
   }
 
   public updateClientType(newValue: string) {
     this.clientType = newValue;
-    console.log('updateClientType: ' + this.clientType);
+    console.log('updateClientType: ' + this.type);
+    localStorage.setItem(this.CLIENT_TYPE, newValue);
     this.clientObserver?.next(newValue);
   }
 

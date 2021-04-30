@@ -8,11 +8,14 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  public isLogin!: boolean;
+  public isLogin!: Boolean;
   constructor(private title: Title, private sharedService: SharedService) {}
 
   ngOnInit(): void {
     this.title.setTitle('Coupon System');
-    this.isLogin = this.sharedService.isLogin;
+    // this.sharedService.isLoginObservable.subscribe((isLogin) => {
+    //   this.isLogin = isLogin;
+    // });
+    this.isLogin = this.isLogin;
   }
 }

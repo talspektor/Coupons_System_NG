@@ -20,6 +20,6 @@ export class LoginService {
       loginItem.email +
       '/' +
       loginItem.password;
-    return this.httpClient.post<Login>(apiUrl, { withCredentials: true });
+    return this.httpClient.post<Login>(apiUrl, null);
   }
 }

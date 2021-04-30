@@ -30,7 +30,7 @@ export class CompaniesComponent implements OnInit {
         this.companies = arr;
       },
       (err) => {
-        alert('fail to get companies error: ' + err.error.message);
+        alert('error: ' + err.error.message);
       }
     );
   }

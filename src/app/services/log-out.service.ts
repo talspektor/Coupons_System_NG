@@ -21,6 +21,6 @@ export class LogOutService {
     );
 
     let apiUrl = 'http://localhost:8080/logout';
-    return this.httpClient.post<void>(apiUrl, this.requestOptions);
+    return this.httpClient.post<void>(apiUrl, null, this.requestOptions);
   }
 }

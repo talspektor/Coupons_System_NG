@@ -1,3 +1,4 @@
+import { SharedService } from 'src/app/services/shared.service';
 import { LogOutService } from './../../services/log-out.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -7,14 +8,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./logout.component.css'],
 })
 export class LogoutComponent implements OnInit {
-  constructor(private logoutService: LogOutService) {}
+  constructor(
+    private logoutService: LogOutService,
+    private sharedService: SharedService
+  ) {}
 
   ngOnInit(): void {}
 
   public logout() {
     this.logoutService.logOut().subscribe(
       () => {
-        localStorage.removeItem('token');
+        localStorage.removeItem(this.sharedService.TOKEN);
+        localStorage.removeItem(this.sharedService.CLIENT_TYPE);
       },
       (error) => {
         console.dir(error);
