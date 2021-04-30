@@ -30,6 +30,7 @@ import { CustomerDetailsComponent } from './components/customer-details/customer
 import { UpdateCouponComponent } from './components/update-coupon/update-coupon.component';
 import { UpdateCompanyComponent } from './components/update-company/update-company.component';
 import { CustomerCouponsComponent } from './components/customer-coupons/customer-coupons.component';
+import { UpdateCustomerComponent } from './components/update-customer/update-customer.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { CustomerCouponsComponent } from './components/customer-coupons/customer
     UpdateCouponComponent,
     UpdateCompanyComponent,
     CustomerCouponsComponent,
+    UpdateCustomerComponent,
   ],
   imports: [
     BrowserModule,

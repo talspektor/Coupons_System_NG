@@ -12,7 +12,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let c of companies" routerLink="/company-details/{{ c.id }}">
+      <tr *ngFor="let c of companies">
         <td>{{ c.name }}</td>
         <td>{{ c.email }}</td>
         <td (click)="deleteCompany(c)">Delete</td>

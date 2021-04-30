@@ -88,7 +88,7 @@ export class AdminService {
 
   public deleteCustomer(id: Number): Observable<Customer> {
     return this.httpClient.delete<Customer>(
-      `http://localhost:8080/api/delete-customer${id}`,
+      `http://localhost:8080/api/delete-customer/${id}`,
       this.requestOptions
     );
   }

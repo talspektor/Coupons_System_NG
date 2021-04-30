@@ -1,0 +1,31 @@
+<div>
+  <form action="" #formInfo>
+    <legend>Edit Customer</legend>
+    <input
+      value="{{ customer.email }}"
+      type="text"
+      name="email"
+      #emailInput
+      placeholder="email"
+      [(ngModel)]="customer.email"
+      required
+    />
+    <br />
+    <input
+      type="password"
+      value="{{ customer.password }}"
+      name="password"
+      #passwordInput
+      placeholder="password"
+      [(ngModel)]="customer.password"
+      required
+    />
+    <br />
+    <input
+      type="button"
+      value="Edit Customer"
+      (click)="updateCustomer()"
+      [disabled]="formInfo.invalid"
+    />
+  </form>
+</div>

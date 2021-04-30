@@ -18,8 +18,11 @@ export class LogoutComponent implements OnInit {
   public logout() {
     this.logoutService.logOut().subscribe(
       () => {
+        console.log('delete token');
+
         localStorage.removeItem(this.sharedService.TOKEN);
         localStorage.removeItem(this.sharedService.CLIENT_TYPE);
+        // this.sharedService.updateIsLogin(false);
       },
       (error) => {
         console.dir(error);

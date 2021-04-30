@@ -44,7 +44,7 @@ export class CompaniesComponent implements OnInit {
         this.getAllCompanies();
       },
       (err) => {
-        alert('fail to delete company error: ' + err.error.message);
+        alert('error: ' + err.error.message);
       }
     );
   }

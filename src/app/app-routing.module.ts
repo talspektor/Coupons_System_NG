@@ -1,3 +1,4 @@
+import { UpdateCustomerComponent } from './components/update-customer/update-customer.component';
 import { CustomerCouponsComponent } from './components/customer-coupons/customer-coupons.component';
 import { BuyCouponComponent } from './components/buy-coupon/buy-coupon.component';
 import { UpdateCompanyComponent } from './components/update-company/update-company.component';
@@ -31,6 +32,7 @@ const routes: Routes = [
   { path: 'customer', component: CustomerComponent },
   { path: 'customers', component: CustomersComponent },
   { path: 'customer-details/:id', component: CustomerDetailsComponent },
+  { path: 'update-customer', component: UpdateCustomerComponent },
   { path: 'add-customer', component: AddCustomerComponent },
   { path: 'coupons', component: CouponsComponent },
   { path: 'update-coupon', component: UpdateCouponComponent },

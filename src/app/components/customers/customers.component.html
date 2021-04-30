@@ -8,13 +8,17 @@
         <th>First Name</th>
         <th>Last Name</th>
         <th>Email</th>
+        <th>Delete</th>
+        <th>Edit</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let c of customers" routerLink="/customer-details/{{ c.id }}">
+      <tr *ngFor="let c of customers">
         <td>{{ c.firstName }}</td>
         <td>{{ c.lastName }}</td>
         <td>{{ c.email }}</td>
+        <td (click)="deleteCustomer(c)">Delete</td>
+        <td (click)="updateCustomer(c)">Edit</td>
       </tr>
     </tbody>
   </table>
