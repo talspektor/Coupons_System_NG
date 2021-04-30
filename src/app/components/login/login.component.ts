@@ -33,26 +33,24 @@ export class LoginComponent implements OnInit {
     this.loginItem.clientType = this.selectedValue;
     this.loginService.login(this.loginItem).subscribe(
       (loginItem) => {
-        this.updateSharedService(loginItem.token);
+        this.updateSharedService(loginItem.token, true);
 
-        localStorage.setItem(this.sharedService.TOKEN, loginItem.token);
-        console.log('token: ' + localStorage.getItem(this.sharedService.TOKEN));
-
-        console.log(
-          'clientType: ',
-          localStorage.getItem(this.sharedService.CLIENT_TYPE)
-        );
+        console.log('clientType: ', this.sharedService.clientType);
+        console.log('token: ', this.sharedService.token);
         this.doRout();
       },
       (err) => {
+        console.log('login fail:' + err);
+
         alert('error: ' + err.error.message);
         this.isLoggedin = false;
+        this.updateSharedService('', false);
       }
     );
   }
 
-  private updateSharedService(token: string) {
-    this.sharedService.updateIsLogin(true);
+  private updateSharedService(token: string, isLogein: boolean) {
+    this.sharedService.updateIsLogin(isLogein);
     this.sharedService.updateClientType(this.selectedValue);
     this.sharedService.updateToken(token);
   }

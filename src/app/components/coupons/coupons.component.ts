@@ -14,7 +14,7 @@ import { CompanyService } from 'src/app/services/company.service';
 })
 export class CouponsComponent implements OnInit {
   public coupons!: Coupon[];
-  public clientType!: String; //localStorage.getItem(this.sharedService.CLIENT_TYPE);
+  public clientType!: String;
 
   constructor(
     private companyService: CompanyService,
@@ -26,15 +26,12 @@ export class CouponsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllCoupons();
-    this.sharedService.clientTypeObservable.subscribe((clienTtype) => {
-      this.clientType = clienTtype;
-    });
+    this.clientType = this.sharedService.clientType;
   }
 
   public getAllCoupons() {
-    console.log('clientType: ' + this.clientType);
-
-    if (this.clientType == ClientType.customer) {
+    console.log('clientType: ' + this.sharedService.clientType);
+    if (this.sharedService.clientType == ClientType.customer) {
       this.customerService.getAllCoupons().subscribe(
         (coupons) => {
           this.coupons = coupons;

@@ -13,13 +13,15 @@ export class CompanyComponent implements OnInit {
   constructor(private companyService: CompanyService) {}
 
   ngOnInit(): void {
+    console.log('company');
+
     this.companyService.getCompanyDetails().subscribe(
       (company) => {
         this.company = company;
       },
       (error) => {
         console.dir(error.error);
-        alert('error' + error.error.message);
+        alert('error ' + error.error.message);
       }
     );
   }

@@ -15,14 +15,13 @@ export class MenuComponent implements OnInit {
   constructor(private sharedService: SharedService) {}
 
   ngOnInit(): void {
-    // this.clientType = this.sharedService.clientType;
-    // this.isLogin = this.sharedService.isLogin;
     this.sharedService.isLoginObservable.subscribe((isLogin) => {
       this.isLogin = isLogin;
     });
     this.sharedService.clientTypeObservable.subscribe((type) => {
       this.clientType = type;
     });
-    console.log(this.clientType);
+    console.log('clientType: ' + this.clientType);
+    console.log('isLogin: ' + this.isLogin);
   }
 }

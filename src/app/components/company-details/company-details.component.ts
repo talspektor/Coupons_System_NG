@@ -14,8 +14,7 @@ export class CompanyDetailsComponent implements OnInit {
 
   constructor(
     private activatedRout: ActivatedRoute,
-    private companyService: CompanyService,
-    private adminService: AdminService
+    private companyService: CompanyService
   ) {}
 
   ngOnInit(): void {
