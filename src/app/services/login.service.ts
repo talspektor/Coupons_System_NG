@@ -11,6 +11,8 @@ export class LoginService {
   constructor(private httpClient: HttpClient) {}
 
   public login(loginItem: LoginRequestItem): Observable<Login> {
+    console.log('login()' + loginItem.clientType);
+
     let apiUrl =
       'http://localhost:8080/login/' +
       loginItem.clientType +

@@ -6,7 +6,7 @@ a {
 }
 
 div {
-  height: 100%;
+  /* height: 100%; */
   overflow: auto;
   background-color: rgb(99, 221, 221);
 }
@@ -14,4 +14,9 @@ div {
 .active-link {
   color: magenta;
   font-weight: bold;
+}
+
+#main {
+  height: 100%;
+  background-color: rgb(99, 221, 221);
 }

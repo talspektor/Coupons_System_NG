@@ -25,11 +25,15 @@ export class CustomerService {
   }
 
   public getCustomerCoupons(): Observable<Coupon[]> {
+    console.log('getCustomerCoupons()');
+
     let APIUrl = `http://localhost:8080/api/customer/coupons`;
     return this.httpClient.get<Coupon[]>(APIUrl, this.requestOptions);
   }
 
   public getAllCoupons(): Observable<Coupon[]> {
+    console.log('getAllCoupons()');
+
     let APIUrl = `http://localhost:8080/api/coupons`;
     return this.httpClient.get<Coupon[]>(APIUrl, this.requestOptions);
   }

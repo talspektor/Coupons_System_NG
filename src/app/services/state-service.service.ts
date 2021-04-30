@@ -8,6 +8,7 @@ import { Coupon } from '../models/coupon.model';
 export class StateServiceService {
   public coupon!: Coupon;
   public company!: Company;
+  public isLogin = false;
 
   constructor() {}
 }

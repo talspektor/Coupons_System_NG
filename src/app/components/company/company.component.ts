@@ -22,14 +22,5 @@ export class CompanyComponent implements OnInit {
         alert('error' + error.error.message);
       }
     );
-    // this.adminService.getCustomer(id).subscribe(
-    //   (customer) => {
-    //     this.customer = customer;
-    //   },
-    //   (error) => {
-    //     console.dir(error.error);
-    //     alert('error: ' + error.error.message);
-    //   }
-    // );
   }
 }

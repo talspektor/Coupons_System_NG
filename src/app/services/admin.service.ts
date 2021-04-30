@@ -19,6 +19,10 @@ export class AdminService {
 
   public getAllCompanies(): Observable<Company[]> {
     console.log(
+      'getAllCompanies(), token: ' + this.requestOptions.headers.get('token')
+    );
+
+    console.log(
       'getAllCompanies token: ' + this.requestOptions.headers.get('token')
     );
 

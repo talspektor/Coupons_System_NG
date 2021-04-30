@@ -9,26 +9,4 @@ export class AdminComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
-
-  public getAllCompanies() {}
-
-  public getcompanyById() {}
-
-  public getCompanyByName() {}
-
-  public deleteCompany() {}
-
-  public updatecomapny() {}
-
-  public addCustomer() {
-    alert('addCustomer');
-
-    // this.router.navigate(['add-custoemr']);
-  }
-
-  public getAllCustomers() {}
-
-  public deleteCustomer() {}
-
-  public updateCustomer() {}
 }

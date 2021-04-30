@@ -17,9 +17,12 @@ import { CompaniesComponent } from './components/companies/companies.component';
 import { CompanyComponent } from './components/company/company.component';
 import { HomeComponent } from './components/home/home.component';
 import { Page404Component } from './components/page404/page404.component';
+import { LogoutComponent } from './components/logout/logout.component';
+import { AboutComponent } from './components/about/about.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
+  { path: 'about', component: AboutComponent },
   { path: 'companies', component: CompaniesComponent },
   { path: 'company', component: CompanyComponent },
   { path: 'add-company', component: AddCompanyComponent },
@@ -35,6 +38,7 @@ const routes: Routes = [
   { path: 'buy-coupon', component: BuyCouponComponent },
   { path: 'customer-coupons', component: CustomerCouponsComponent },
   { path: 'admin', component: AdminComponent },
+  { path: 'log-out', component: LogoutComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', component: Page404Component },
 ];

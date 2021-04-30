@@ -15,9 +15,12 @@ export class LogOutService {
   ) {}
 
   public logOut(): Observable<void> {
-    console.log('logout');
+    console.log(
+      'logout token: ' +
+        this.requestOptions.headers.get(this.sharedService.TOKEN)
+    );
 
-    let apiUrl = 'http://localhost:8080/logout/';
+    let apiUrl = 'http://localhost:8080/logout';
     return this.httpClient.post<void>(apiUrl, this.requestOptions);
   }
 }

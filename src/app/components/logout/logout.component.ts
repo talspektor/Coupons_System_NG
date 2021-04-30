@@ -17,6 +17,7 @@ export class LogoutComponent implements OnInit {
         localStorage.removeItem('token');
       },
       (error) => {
+        console.dir(error);
         alert('error: ' + error.error.mesage);
       }
     );

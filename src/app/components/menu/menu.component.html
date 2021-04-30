@@ -1,23 +1,31 @@
-<div>
-  <a routerLink="home" routerLinkActive="active-link">Home</a>
-  <a routerLink="about" routerLinkActive="active-link">About</a>
-  <div #adminMenu *ngIf="clientType == 'ADMIN'">
-    <a routerLink="companies" routerLinkActive="active-link">Companies</a>
-    <a routerLink="customers" routerLinkActive="active-link">Customers</a>
-    <a routerLink="add-company" routerLinkActive="active-link">Add Company</a>
-    <a routerLink="add-customer" routerLinkActive="active-link">Add Customer</a>
+<div id="main">
+  <div *ngIf="!isLogin">
+    <a routerLink="home" routerLinkActive="active-link">Home</a>
   </div>
-  <div #companyMenu *ngIf="clientType == 'COMPANY'">
-    <a routerLink="coupons" routerLinkActive="active-link">Coupons</a>
-    <a routerLink="add-coupon" routerLinkActive="active-link">Add Coupon</a>
-    <a routerLink="company" routerLinkActive="active-link">Details</a>
+  <div>
+    <a routerLink="about" routerLinkActive="active-link">About</a>
   </div>
-  <div #customerMenu *ngIf="clientType == 'CUSTOMER'">
-    <a routerLink="coupons" routerLinkActive="active-link">All Coupons</a>
-    <!-- <a routerLink="buy-coupon" routerLinkActive="active-link">Buy Coupon</a> -->
-    <a routerLink="customer" routerLinkActive="active-link">Details</a>
-    <a routerLink="customer-coupons" routerLinkActive="active-link"
-      >My Couopns</a
-    >
+  <div *ngIf="isLogin">
+    <div #adminMenu *ngIf="clientType == 'ADMIN'">
+      <a routerLink="companies" routerLinkActive="active-link">Companies</a>
+      <a routerLink="customers" routerLinkActive="active-link">Customers</a>
+      <a routerLink="add-company" routerLinkActive="active-link">Add Company</a>
+      <a routerLink="add-customer" routerLinkActive="active-link"
+        >Add Customer</a
+      >
+    </div>
+    <div #companyMenu *ngIf="clientType == 'COMPANY'">
+      <a routerLink="coupons" routerLinkActive="active-link">Coupons</a>
+      <a routerLink="add-coupon" routerLinkActive="active-link">Add Coupon</a>
+      <a routerLink="company" routerLinkActive="active-link">Details</a>
+    </div>
+    <div #customerMenu *ngIf="clientType == 'CUSTOMER'">
+      <a routerLink="coupons" routerLinkActive="active-link">All Coupons</a>
+      <a routerLink="customer" routerLinkActive="active-link">Details</a>
+      <a routerLink="customer-coupons" routerLinkActive="active-link"
+        >My Couopns</a
+      >
+    </div>
+    <a routerLink="log-out" routerLinkActive="active-link">Logout</a>
   </div>
 </div>
