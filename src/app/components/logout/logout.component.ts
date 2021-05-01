@@ -22,6 +22,7 @@ export class LogoutComponent implements OnInit {
 
         localStorage.removeItem(this.sharedService.TOKEN);
         localStorage.removeItem(this.sharedService.CLIENT_TYPE);
+
         // this.sharedService.updateIsLogin(false);
       },
       (error) => {
