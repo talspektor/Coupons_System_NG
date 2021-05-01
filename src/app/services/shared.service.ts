@@ -19,7 +19,7 @@ export class SharedService {
   public type = localStorage.getItem(this.CLIENT_TYPE);
   public clientType =
     localStorage.getItem(this.CLIENT_TYPE) ?? ClientType.admin;
-  public isLogin!: boolean;
+  public isLogin: boolean = localStorage.getItem(this.IS_LOGIN) == 'true';
   public requestOptions!: { headers: HttpHeaders };
   // Observables
   public tokenObservable: Observable<String>;
@@ -65,6 +65,7 @@ export class SharedService {
 
   public updateIsLogin(newValue: boolean) {
     this.isLogin = newValue;
+    localStorage.setItem(this.IS_LOGIN, String(newValue));
     console.log('updateIsLogin: ' + this.isLogin);
     this.isLoginObserver?.next(newValue);
   }

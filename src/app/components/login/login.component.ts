@@ -49,8 +49,8 @@ export class LoginComponent implements OnInit {
     );
   }
 
-  private updateSharedService(token: string, isLogein: boolean) {
-    this.sharedService.updateIsLogin(isLogein);
+  private updateSharedService(token: string, isLogin: boolean) {
+    this.sharedService.updateIsLogin(isLogin);
     this.sharedService.updateClientType(this.selectedValue);
     this.sharedService.updateToken(token);
   }

@@ -16,16 +16,24 @@ export class MenuComponent implements OnInit {
   constructor(private sharedService: SharedService, private router: Router) {}
 
   ngOnInit(): void {
+    this.updateIsLogin();
+    this.updateToken();
+    console.log('clientType: ' + this.clientType);
+    console.log('isLogin: ' + this.isLogin);
+  }
+
+  private updateIsLogin() {
     this.sharedService.isLoginObservable.subscribe((isLogin) => {
       this.isLogin = isLogin;
       if (!this.isLogin) {
         this.router.navigateByUrl('/home');
       }
     });
+  }
+
+  private updateToken() {
     this.sharedService.clientTypeObservable.subscribe((type) => {
       this.clientType = type;
     });
-    console.log('clientType: ' + this.clientType);
-    console.log('isLogin: ' + this.isLogin);
   }
 }
