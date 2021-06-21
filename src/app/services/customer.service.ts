@@ -10,7 +10,12 @@ import { SharedService } from './shared.service';
   providedIn: 'root',
 })
 export class CustomerService {
-  readonly requestOptions = this.sharedService.requestOptions;
+  private requestOptions: { headers: HttpHeaders } = {
+    headers: new HttpHeaders().set(
+      this.sharedService.TOKEN,
+      localStorage.getItem(this.sharedService.TOKEN)!
+    ),
+  };
 
   constructor(
     private httpClient: HttpClient,

@@ -1,3 +1,4 @@
+import { OnInit } from '@angular/core';
 // import { SharedService } from 'src/app/services/shared.service';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -10,7 +11,12 @@ import { SharedService } from './shared.service';
   providedIn: 'root',
 })
 export class AdminService {
-  readonly requestOptions = this.sharedService.requestOptions;
+  private requestOptions: { headers: HttpHeaders } = {
+    headers: new HttpHeaders().set(
+      this.sharedService.TOKEN,
+      localStorage.getItem(this.sharedService.TOKEN)!
+    ),
+  };
 
   constructor(
     private httpClient: HttpClient,
@@ -18,6 +24,7 @@ export class AdminService {
   ) {}
 
   public getAllCompanies(): Observable<Company[]> {
+    console.log(this.requestOptions.headers.get(this.sharedService.TOKEN));
     console.log('getAllCompanies()');
 
     let APIUrl = 'http://localhost:8080/api/companies';

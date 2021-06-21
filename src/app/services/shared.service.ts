@@ -52,6 +52,7 @@ export class SharedService {
     this.requestOptions = {
       headers: new HttpHeaders().set(this.TOKEN, this.token),
     };
+    console.dir('token: ' + this.requestOptions.headers);
     localStorage.setItem(this.TOKEN, newValue);
     this.tokenObserver?.next(newValue);
   }
