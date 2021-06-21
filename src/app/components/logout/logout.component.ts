@@ -22,13 +22,15 @@ export class LogoutComponent implements OnInit {
 
         localStorage.removeItem(this.sharedService.TOKEN);
         localStorage.removeItem(this.sharedService.CLIENT_TYPE);
-
-        // this.sharedService.updateIsLogin(false);
+        this.updateSharedService(false);
       },
       (error) => {
         console.dir(error);
-        alert('error: ' + error.error.mesage);
       }
     );
+  }
+
+  private updateSharedService(isLogin: boolean) {
+    this.sharedService.updateIsLogin(isLogin);
   }
 }
